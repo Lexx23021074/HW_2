@@ -11,3 +11,15 @@ class Review:
     
     def __str__(self):
         return f"Review by {self.reviewer}: {self.text}"
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+        self.reviews = []  # список відгуків
+
+    def add_review(self, review):
+        self.reviews.append(review)
+
+    def __str__(self):
+        reviews_str = '\n'.join(str(review) for review in self.reviews)
+        return f"Book: {self.title} by {self.author}\nReviews:\n{reviews_str if reviews_str else 'No reviews yet.'}"
